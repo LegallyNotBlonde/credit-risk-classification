@@ -1,7 +1,6 @@
-# credit-risk-classification
+# Loans Risk Classification
 
 ## Overview of the Analysis
-___
 
 ### Purpose:
 The analysis aims to develop and evaluate a machine learning model that can predict whether a loan is healthy (Class 0) or risky (Class 1). This assists the bank in mitigating credit risk by identifying loans likely to default, improving decision-making in loan approvals or rejections.
@@ -55,10 +54,16 @@ Summarize the results of the machine learning models, and include a recommendati
 * **Does performance depend on the problem being solved?**
 <p> Yes, performance depends on the problem. In this case, accurately predicting high-risk loans (1's) is more important because failing to identify these loans could result in significant financial losses for the bank. The model does well in identifying risky loans, but there is still room for improvement due to the data imbalance.
 
-___
 
 * **Recommendation:** 
 <p> The Logistic Regression model is a strong candidate for deployment, especially with adjustments to better handle the imbalance. Improvements can be made by oversampling risky loans, adjusting class weights, or focusing more on precision and recall for high-risk loans. These steps will enhance the model's ability to detect risky loans, thus better managing the bank's credit risk.
+
+___
+
+### Repo Structure:
+* The Jupyter Notebook with the code, **'credit_risk_classification.ipynb'**, is located in the **'Credit_Risk' folder**.
+* The **'Readme.md'** file includes the analysis of loan risks.
+The **'License'** file contains the general public license.
 
 ___
 
