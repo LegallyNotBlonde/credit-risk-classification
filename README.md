@@ -1,4 +1,4 @@
-# Loans Risk Classification
+# Loan Risk Classification
 
 ## Overview of the Analysis
 
