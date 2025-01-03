@@ -12,18 +12,19 @@ The dataset includes financial variables such as loan size, interest rate, borro
 
 ![Class Distribution](https://github.com/LegallyNotBlonde/credit-risk-classification/blob/main/Visualization/class_distribution.png)
 
+**Key Observation:**
+The dataset is highly imbalanced, with healthy loans dominating. While desirable for a bank, this imbalance can hinder the model's ability to detect risky loans accurately.
+
 * The graph below shows that loan amounts are normally distributed, with most requests centered around $10,000 and fewer at the extremes.
 
 ![Loan Amount Distribution](https://github.com/LegallyNotBlonde/credit-risk-classification/blob/main/Visualization/amount_distribution.png)
 
-**Key Observation:**
-The dataset is highly imbalanced, with healthy loans dominating. While desirable for a bank, this imbalance can hinder the model's ability to detect risky loans accurately.
 ___
 
 ## Machine Learning Process
 1. **Data Preprocessing:**
 
-   * Features (`X`) and labels (`y`) were separated.
+   * Features (X) and labels (y) were separated.
    * Data was split into training and testing sets, stratified to preserve class balance.
 
 2. **Model Training:**
