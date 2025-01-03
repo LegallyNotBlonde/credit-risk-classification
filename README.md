@@ -9,6 +9,11 @@ The dataset includes financial variables such as loan size, interest rate, borro
 
 * **Class 0 (Healthy Loans):** 18,759 samples
 * **Class 1 (Risky Loans):** 625 samples
+<p> The entire dataset remain inbalanced as well:
+![Class Distribution(https://github.com/LegallyNotBlonde/credit-risk-classification/blob/main/Visualization/class_distribution.png)
+
+* The graph below shows he loan amounts are normally distributed, with most requests centered around $10,000 and fewer at the extremes.
+![Loan Amount Ditribution](https://github.com/LegallyNotBlonde/credit-risk-classification/blob/main/Visualization/amount_distribution.png)
 
 **Key Observation:**
 The dataset is highly imbalanced, with healthy loans dominating. While desirable for a bank, this imbalance can hinder the model's ability to detect risky loans accurately.
@@ -63,9 +68,9 @@ The Logistic Regression model performs exceptionally well for healthy loans and 
 ___
 
 ## Repo Structure
-Notebook: credit_risk_classification.ipynb
-Documentation: README.md (includes analysis summary)
-License: Contains the public license information.
+<p> Notebook: credit_risk_classification.ipynb
+<p> Documentation: README.md (includes analysis summary)
+<p> License: Contains the public license information.
 ___
 
 ## Data Reference
