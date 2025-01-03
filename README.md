@@ -1,72 +1,72 @@
 # Loan Risk Classification
 
-## Overview of the Analysis
-
-### Purpose:
-The analysis aims to develop and evaluate a machine learning model that can predict whether a loan is healthy (Class 0) or risky (Class 1). This assists the bank in mitigating credit risk by identifying loans likely to default, improving decision-making in loan approvals or rejections.
+## Purpose
+This analysis aims to develop a machine learning model to predict whether a loan is healthy (Class 0) or risky (Class 1). By identifying high-risk loans, the bank can mitigate credit risk and improve loan approval decisions.
 ___
 
-### Present Data VS Predicted Information:
-The data includes financial information such as loan size, interest rate, borrower income, debt-to-income ratio, number of accounts, derogatory marks, and total debt. The target variable (loan_status) indicates whether the loan is healthy (0) or high-risk (1), which the model is designed to predict.
+## Data Overview
+The dataset includes financial variables such as loan size, interest rate, borrower income, debt-to-income ratio, number of accounts, derogatory marks, and total debt. The target variable (loan_status) indicates loan health:
+
+* **Class 0 (Healthy Loans):** 18,759 samples
+* **Class 1 (Risky Loans):** 625 samples
+
+**Key Observation:**
+The dataset is highly imbalanced, with healthy loans dominating. While desirable for a bank, this imbalance can hinder the model's ability to detect risky loans accurately.
 ___
 
-### Basic Information About the Predicted Variables:
-The target variable, loan_status, is highly imbalanced, with far more healthy loans (Class 0) compared to risky loans (Class 1). While it is very good and desirable for a bank to have the absolute majority of loans be healthy, this imbalance impacts the model's ability to predict the minority class (risky loans). Here's the breakdown:
+## Machine Learning Process
+1. **Data Preprocessing:**
 
-* Class 0 (healthy loans): 18,759 samples
-* Class 1 (risky loans): 625 samples
+* Features (X) and labels (y) were separated.
+* Data was split into training and testing sets, stratified to preserve class balance.
+
+2. **Model Training:**
+
+* A Logistic Regression model was implemented using the lbfgs solver.
+* The model was trained on the stratified training dataset to ensure consistent results across imbalanced classes.
+**
+3. **Evaluation:**
+
+* Performance was assessed using a confusion matrix and classification report, providing accuracy, precision, recall, and F1-score metrics.
 ___
 
-### Stages of the Machine Learning Process:
-1. Loading and preprocessing the data by separating the features (X) and labels (y).
-2. Splitting the data into training and testing sets using train_test_split, with stratify=y to handle class imbalance.
-3. Implementing a **Logistic Regression model** from 'Scikit-Learn', with the 'lbfgs solver' to fit the training data and predict the test data. Logistic Regression is a linear model for binary classification, making it suitable for predicting whether loans are healthy or risky. The random_state was set to 1 for reproducibility, and the model was trained on the training dataset before being evaluated on the test dataset.
-4. Evaluating the model's performance using a confusion matrix and classification report to obtain precision, recall, and accuracy metrics.
+## Results
 
-___
-
-### Results:
-
-<p> Description of Accuracy, Machine Learning Model 1 (Logistic Regression):
-
-* **Accuracy: 99%**
+### Key Metrics:
+* **Overall Accuracy:** 99%
 * **Precision:**
-<p> - Class 0 (healthy loans): 1.00 (perfect precision)
-<p> - Class 1 (risky loans): 0.87
-
-* **Recall:** 
-<p> - Class 0 (healthy loans): 1.00 (perfect recall)
-<p> - Class 1 (risky loans): 0.89
-
+    * Class 0: 1.00 (Perfect precision)
+    * Class 1: 0.87
+* **Recall:**
+    * Class 0: 1.00 (Perfect recall)
+    * Class 1: 0.89
 * **F1-Score:**
-<p> - Class 0: 1.00
-<p> - Class 1: 0.88
+    * Class 0: 1.00
+    * Class 1: 0.88
+
+### Insights:
+* The model excels at predicting healthy loans, achieving perfect precision and recall.
+* Performance for risky loans is strong but slightly lower due to class imbalance.
+___
+
+## Recommendations
+To improve the model's ability to predict risky loans:
+
+1. **Oversample Risky Loans:** Increase the number of risky loan samples to balance the dataset.
+2. **Adjust Class Weights:** Penalize misclassification of risky loans more heavily.
+3. **Precision-Recall Tradeoff:** Focus on improving precision and recall for Class 1 (risky loans), as missing high-risk cases is costlier for the bank.
 
 ___
 
-### Summary
-
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-
-* **Which model performs best and how is it known?**
-<p> The Logistic Regression model performed exceptionally well in predicting healthy loans, achieving perfect precision and recall (1.00). It also performed reasonably well in predicting risky loans, with a precision of 87% and a recall of 89%. These metrics show that the model effectively identifies both classes, though it is slightly less reliable in predicting high-risk loans.
-
-* **Does performance depend on the problem being solved?**
-<p> Yes, performance depends on the problem. In this case, accurately predicting high-risk loans (1's) is more important because failing to identify these loans could result in significant financial losses for the bank. The model does well in identifying risky loans, but there is still room for improvement due to the data imbalance.
-
-
-* **Recommendation:** 
-<p> The Logistic Regression model is a strong candidate for deployment, especially with adjustments to better handle the imbalance. Improvements can be made by oversampling risky loans, adjusting class weights, or focusing more on precision and recall for high-risk loans. These steps will enhance the model's ability to detect risky loans, thus better managing the bank's credit risk.
-
+## Summary
+The Logistic Regression model performs exceptionally well for healthy loans and reasonably well for risky loans. With targeted improvements, this model can provide reliable predictions, enabling better credit risk management and decision-making.
 ___
 
-### Repo Structure:
-* The Jupyter Notebook with the code, **'credit_risk_classification.ipynb'**, is located in the **'Credit_Risk' folder**.
-* The **'Readme.md'** file includes the analysis of loan risks.
-The **'License'** file contains the general public license.
-
+## Repo Structure
+Notebook: credit_risk_classification.ipynb
+Documentation: README.md (includes analysis summary)
+License: Contains the public license information.
 ___
 
-### Data References:
-Data for this dataset was generated by edX Boot Camps LLC, intended for educational purposes only, to demonstrate the ability to transform and analyze data using machine learning techniques.
-___
+## Data Reference
+This dataset is fictional and is used to showcase my machine learning skills in predicting healthy and risky loans, as well as applying data transformation techniques in a real-world context.
