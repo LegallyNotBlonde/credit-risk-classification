@@ -5,15 +5,16 @@ This analysis aims to develop a machine learning model to predict whether a loan
 ___
 
 ## Data Overview
-The dataset includes financial variables such as loan size, interest rate, borrower income, debt-to-income ratio, number of accounts, derogatory marks, and total debt. The target variable (loan_status) indicates loan health:
+The dataset includes financial variables such as loan size, interest rate, borrower income, debt-to-income ratio, number of accounts, derogatory marks, and total debt. The target variable (`loan_status`) indicates loan health:
 
 * **Class 0 (Healthy Loans):** 18,759 samples
 * **Class 1 (Risky Loans):** 625 samples
-<p> The entire dataset remain inbalanced as well:
-![Class Distribution(https://github.com/LegallyNotBlonde/credit-risk-classification/blob/main/Visualization/class_distribution.png)
 
-* The graph below shows he loan amounts are normally distributed, with most requests centered around $10,000 and fewer at the extremes.
-![Loan Amount Ditribution](https://github.com/LegallyNotBlonde/credit-risk-classification/blob/main/Visualization/amount_distribution.png)
+![Class Distribution](https://github.com/LegallyNotBlonde/credit-risk-classification/blob/main/Visualization/class_distribution.png)
+
+* The graph below shows that loan amounts are normally distributed, with most requests centered around $10,000 and fewer at the extremes.
+
+![Loan Amount Distribution](https://github.com/LegallyNotBlonde/credit-risk-classification/blob/main/Visualization/amount_distribution.png)
 
 **Key Observation:**
 The dataset is highly imbalanced, with healthy loans dominating. While desirable for a bank, this imbalance can hinder the model's ability to detect risky loans accurately.
@@ -22,17 +23,17 @@ ___
 ## Machine Learning Process
 1. **Data Preprocessing:**
 
-* Features (X) and labels (y) were separated.
-* Data was split into training and testing sets, stratified to preserve class balance.
+   * Features (`X`) and labels (`y`) were separated.
+   * Data was split into training and testing sets, stratified to preserve class balance.
 
 2. **Model Training:**
 
-* A Logistic Regression model was implemented using the lbfgs solver.
-* The model was trained on the stratified training dataset to ensure consistent results across imbalanced classes.
-**
+   * A Logistic Regression model was implemented using the `lbfgs` solver.
+   * The model was trained on the stratified training dataset to ensure consistent results across imbalanced classes.
+
 3. **Evaluation:**
 
-* Performance was assessed using a confusion matrix and classification report, providing accuracy, precision, recall, and F1-score metrics.
+   * Performance was assessed using a confusion matrix and classification report, providing accuracy, precision, recall, and F1-score metrics.
 ___
 
 ## Results
@@ -49,6 +50,9 @@ ___
     * Class 0: 1.00
     * Class 1: 0.88
 
+### Visualization of Key Metrics
+![Precision and Recall for each class of loan](https://github.com/LegallyNotBlonde/credit-risk-classification/blob/main/Visualization/precision_recall.png)
+
 ### Insights:
 * The model excels at predicting healthy loans, achieving perfect precision and recall.
 * Performance for risky loans is strong but slightly lower due to class imbalance.
@@ -60,6 +64,7 @@ To improve the model's ability to predict risky loans:
 1. **Oversample Risky Loans:** Increase the number of risky loan samples to balance the dataset.
 2. **Adjust Class Weights:** Penalize misclassification of risky loans more heavily.
 3. **Precision-Recall Tradeoff:** Focus on improving precision and recall for Class 1 (risky loans), as missing high-risk cases is costlier for the bank.
+4. **Ongoing Monitoring:** Regularly validate the model with real-world loan data to ensure its performance remains robust over time.
 
 ___
 
